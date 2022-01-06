@@ -1,0 +1,24 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "gateway for user and flights microservices, with nodejs, docker and oauth0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "docker",
+    "express"
+  ],
+  "author": "adgreenii",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "express-jwt": "^6.1.0",
+    "jwks-rsa": "^2.0.5",
+    "node-fetch": "^2.0.0",
+    "socket.io": "^4.4.0"
+  }
+}

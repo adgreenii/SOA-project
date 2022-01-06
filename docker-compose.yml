@@ -1,0 +1,44 @@
+version: "3"
+services:
+  user_micro:
+    image: user_micro
+    ports:
+      - "8090:8090"
+    networks:
+      - app_net
+  flights_micro:
+    image: flights_micro
+    ports:
+      - "8092:8092"
+    networks:
+      - app_net
+  api_gateway:
+    image: api_gateway
+    ports:
+      - "8094:8094"
+    networks:
+      - app_net
+    depends_on:
+      - user_micro
+      - flights_micro
+  flights_web:
+    image: flights_web
+    stdin_open: true
+    ports:
+      - "8096:8096"
+    networks:
+      - app_net
+    depends_on:
+      - api_gateway
+  main_web:
+    image: main_web
+    stdin_open: true
+    ports:
+      - "8098:8098"
+    networks:
+      - app_net
+    depends_on:
+      - flights_web
+networks:
+  app_net:
+    driver: bridge
