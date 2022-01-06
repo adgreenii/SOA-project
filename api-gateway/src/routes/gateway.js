@@ -3,8 +3,9 @@ const router = require('express').Router();
 const { response } = require('express');
 const fs = require('fs');
 
-const message = require('../../app');
-console.log(message);
+//test send mail
+let client = require('@sendgrid/mail');
+client.setApiKey('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');
 
 var error = 'Internal server error';
 var loggedInUsers = [];
@@ -58,6 +59,31 @@ router.route('/login').post((req,res)=>{
             res.json({error});
         });
     }
+});
+
+router.route('/mail').post((req,res)=>{
+    console.log('---------------- NEW REQUEST ----------------');
+    console.log('Request received for path /mail POST');
+    const email = req.body.email;
+    const name = req.body.name;
+    console.log(`body email:  ${email}`);
+    console.log(`body name:  ${name}`);
+
+    client.send({
+        to: email,
+        from: 'tad17adi@gmail.com',
+        subject: 'Flights app says hello!',
+        templateId: 'd-e5ecdce380164e82a447d74d4913e9f3',
+        dynamicTemplateData: {
+            name: name
+        }
+    }).then(() => {
+        console.log('Email sent.');
+        res.json({name});
+    }).catch((err) => {
+        console.log(`Error sending mail: ${err}`);
+        res.json({error});
+    });
 });
 
 router.route('/user/flights').get((req,res) => {
