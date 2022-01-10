@@ -5,7 +5,7 @@ const fs = require('fs');
 
 //test send mail
 let client = require('@sendgrid/mail');
-client.setApiKey('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');
+client.setApiKey('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');
 
 var error = 'Internal server error';
 var loggedInUsers = [];
@@ -73,10 +73,11 @@ router.route('/mail').post((req,res)=>{
         to: email,
         from: 'tad17adi@gmail.com',
         subject: 'Flights app says hello!',
-        templateId: 'd-e5ecdce380164e82a447d74d4913e9f3',
-        dynamicTemplateData: {
-            name: name
-        }
+        text: `This is a message from the flights app to you, ${name}`
+        // templateId: 'd-e5ecdce380164e82a447d74d4913e9f3',
+        // dynamicTemplateData: {
+        //     name: name
+        // }
     }).then(() => {
         console.log('Email sent.');
         res.json({name});
