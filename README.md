@@ -19,6 +19,12 @@ UML diagram of the fromtend components
 
 ![UML diagram of the fromtend components](./images/UML_diagram.png)
 
+## SOA design patterns
+
+**Service Bus** - The API Gateway, which acts like a communication channel, is called by the frontend and sends the necessary requests to the specific microservices that will provide the requested data back, and then the gateway responds to the frontend.
+
+**Router** - multiple endpoints are defined in the API Gateway and for each one, requests are made to the necessary endpoints of the microservices. The frontend never calls multiple services directly.
+
 ## Web server
 
 The web server is a Node.js application that has 3 parts.
