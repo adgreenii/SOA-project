@@ -1,7 +1,9 @@
 # SOA-project
 Application using micro frontends and microservices through secured API calls.
 
-run npm install on each app to install all the dependencies.
+run **docker build -t image-name .** for each project
+
+run **docker-compose up** to create the containers and start thhe application.
 
 ## Diagrams
 
