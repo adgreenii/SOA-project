@@ -21,9 +21,11 @@ UML diagram of the fromtend components
 
 ## SOA design patterns
 
-**Service Bus** - The API Gateway, which acts like a communication channel, is called by the frontend and sends the necessary requests to the specific microservices that will provide the requested data back, and then the gateway responds to the frontend.
+**Decompose by Business Capability** - The microservices are loosely coupled and each serves a different business object. One holds the user data and the other one has the flights data.
 
-**Router** - multiple endpoints are defined in the API Gateway and for each one, requests are made to the necessary endpoints of the microservices. The frontend never calls multiple services directly.
+**Sidecar Pattern** - All the components are deployed into separate isolated containers that have the same lifecycle, functioning independently but providing supporting features.
+
+**API Gateway** - The API gateway is the single entry point for the microservices calls. It routes requests to the concerned microservice. All clients call the API gateway.
 
 ## Web server
 
