@@ -20,6 +20,7 @@ UML diagram of the fromtend components
 ![UML diagram of the fromtend components](./images/UML_diagram.png)
 
 ## SOA design patterns
+modificare pt git
 
 **Decompose by Business Capability** - The microservices are loosely coupled and each serves a different business object. One holds the user data and the other one has the flights data.
 
